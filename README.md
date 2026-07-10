@@ -1,3 +1,18 @@
+# @origam/react-contexify
+
+Fork of [fkhadra/react-contexify](https://github.com/fkhadra/react-contexify) v6.0.0 maintained for the [ORIGAM](https://github.com/origam/origam) project.
+
+**Delta from upstream:** submenu positioning in `Submenu.tsx` now clamps to the viewport in pixels when neither the default (`-bottom`) nor the flipped position fits — the previous behaviour only toggled a CSS class and left the submenu clipped at small resolutions. See [origam/origam#4526](https://github.com/origam/origam/pull/4526).
+
+To pull upstream changes:
+```bash
+git remote add upstream https://github.com/fkhadra/react-contexify.git
+git fetch upstream
+git merge upstream/main
+```
+
+---
+
 <img width="645" alt="screenshot 2018-10-31 at 13 32 57" src="https://user-images.githubusercontent.com/5574267/47815610-1806fa00-dd51-11e8-981b-2f680244ae29.png">
 
 ![React-contexify CI](https://github.com/fkhadra/react-contexify/workflows/React-contexify%20CI/badge.svg) [![npm](https://img.shields.io/npm/dm/react-contexify.svg)]() [![npm](https://img.shields.io/npm/v/react-contexify.svg)]() [![license](https://img.shields.io/github/license/fkhadra/react-contexify.svg?maxAge=2592000)]()

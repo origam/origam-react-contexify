@@ -65,18 +65,41 @@ export const Submenu: React.FC<SubMenuProps> = ({
 
   function setPosition() {
     const node = submenuNode.current;
-    if (node) {
-      const bottom = `${CssClass.submenu}-bottom`;
-      const right = `${CssClass.submenu}-right`;
+    if (!node) return;
 
-      // reset to default position before computing position
-      node.classList.remove(bottom, right);
+    const bottom = `${CssClass.submenu}-bottom`;
+    const right = `${CssClass.submenu}-right`;
+    const VIEWPORT_PADDING = 8;
 
-      const rect = node.getBoundingClientRect();
+    node.classList.remove(bottom, right);
+    node.style.top = '';
+    node.style.bottom = '';
 
-      if (rect.right > window.innerWidth) node.classList.add(right);
+    const rect = node.getBoundingClientRect();
+    if (rect.right > window.innerWidth) node.classList.add(right);
+    if (rect.bottom > window.innerHeight) node.classList.add(bottom);
 
-      if (rect.bottom > window.innerHeight) node.classList.add(bottom);
+    const parent = node.parentElement;
+    if (!parent) return;
+
+    const parentRect = parent.getBoundingClientRect();
+    const submenuHeight = node.scrollHeight;
+    const viewportHeight = window.innerHeight;
+
+    let topViewport = parentRect.top;
+    if (topViewport + submenuHeight > viewportHeight - VIEWPORT_PADDING) {
+      topViewport = viewportHeight - VIEWPORT_PADDING - submenuHeight;
+    }
+    if (topViewport < VIEWPORT_PADDING) topViewport = VIEWPORT_PADDING;
+
+    const relativeTop = topViewport - parentRect.top;
+    const overflowsBoth =
+      submenuHeight > viewportHeight - 2 * VIEWPORT_PADDING;
+
+    if (relativeTop !== 0 || overflowsBoth) {
+      node.classList.remove(bottom);
+      node.style.top = `${relativeTop}px`;
+      node.style.bottom = 'auto';
     }
   }
 

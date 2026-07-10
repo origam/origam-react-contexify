@@ -1,5 +1,5 @@
 {
-  "version": "6.0.0",
+  "version": "6.0.1-origam.0",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,14 +46,14 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-contexify",
+  "name": "@origam/react-contexify",
   "author": "Fadi Khadra <fdkhadra@gmail.com> (https://github.com/fkhadra)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fkhadra/react-contexify.git"
+    "url": "git+https://github.com/origam/origam-react-contexify.git"
   },
   "bugs": {
-    "url": "https://github.com/fkhadra/react-contexify/issues"
+    "url": "https://github.com/origam/origam-react-contexify/issues"
   },
   "description": "Add contextmenu to your react component with ease",
   "keywords": [
