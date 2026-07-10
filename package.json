@@ -28,6 +28,7 @@
   ],
   "scripts": {
     "start": "cd example && yarn start",
+    "prepare": "tsup && yarn run build:style",
     "build": "tsup && yarn run build:style",
     "test": "cypress run",
     "cypress:open": "cypress open",
